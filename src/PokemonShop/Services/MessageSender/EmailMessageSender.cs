@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using PokemonShop.DataTransferObjects;
@@ -40,7 +41,7 @@ namespace PokemonShop.Services.MessageSender
             {
                 if (_mailConfig.IsValid)
                 {
-                    await client.ConnectAsync(_mailConfig.SMTPServer, _mailConfig.SMTPPort, false);
+                    await client.ConnectAsync(_mailConfig.SMTPServer, _mailConfig.SMTPPort, SecureSocketOptions.StartTlsWhenAvailable);
                     await client.AuthenticateAsync(_mailConfig.Login, _mailConfig.Password);
                     await client.SendAsync(emailMessage);
 
