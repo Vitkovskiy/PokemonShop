@@ -8,5 +8,6 @@ namespace PokemonShop.Services.Users
     public interface IUserService
     {
         User CreateUser(string name, string email, string phoneName);
+        void UpdateUser(int userId, string name, string phoneNumber);
     }
 }

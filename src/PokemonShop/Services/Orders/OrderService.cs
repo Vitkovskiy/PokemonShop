@@ -44,9 +44,9 @@ namespace PokemonShop.Services.Orders
             var orderHistoryItems = _userRepository.Set.Select(x => new OrderHistoryItemDto
             {
                 UserName = x.Name,
-                OrderDate = x.Orders.Select(o => o.OrderDate).OrderByDescending(d => d).First().ToString("hh:mm MM.dd.yyyy"),
+                OrderDate = x.Orders.Select(o => o.OrderDate).OrderByDescending(d => d).First(),
                 Count = x.Orders.Count
-            }).ToList();
+            }).OrderByDescending(x => x.OrderDate).ToList();
 
             return orderHistoryItems;
         }

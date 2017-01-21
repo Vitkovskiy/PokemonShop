@@ -52,6 +52,12 @@ namespace PokemonShop.Controllers.WebApi
             var user = _userRepository.Set.FirstOrDefault(x => x.Email == orderDetails.Email) ??
                        _userService.CreateUser(orderDetails.UserName, orderDetails.Email, orderDetails.PhoneNumber);
 
+            // update user if name or phone number were changed
+            if (user.Name != orderDetails.UserName || user.PhoneNumber != orderDetails.PhoneNumber)
+            {
+                _userService.UpdateUser(user.Id, orderDetails.UserName, orderDetails.PhoneNumber);
+            }
+
             // create new order for this user
             _orderService.CreateOrder(user.Id);
 

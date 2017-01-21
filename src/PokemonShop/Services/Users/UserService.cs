@@ -35,5 +35,15 @@ namespace PokemonShop.Services.Users
 
             return user;
         }
+
+        public void UpdateUser(int userId, string name, string phoneNumber)
+        {
+            var user = _userRepository.Get(userId);
+
+            user.Name = name;
+            user.PhoneNumber = phoneNumber;
+
+            _userRepository.Update(user);
+        }
     }
 }

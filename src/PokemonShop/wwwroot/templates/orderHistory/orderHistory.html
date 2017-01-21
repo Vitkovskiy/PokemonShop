@@ -4,7 +4,7 @@
         <table class="table table-striped">
             <tbody>
                 <tr data-ng-repeat="order in orderHistoryItems">
-                    <td><p>{{order.orderDate}}</p></td>
+                    <td><p>{{order.orderDate | date : 'HH:mm dd.MM.yyyy' }}</p></td>
                     <td><p>{{order.userName}} заказал покемона уже {{order.count}} {{::getHowManyTimesWord(order.count)}}.</p></td>
                 </tr>               
             </tbody>
