@@ -1,0 +1,37 @@
+﻿<div class="panel panel-default" id="order-form">
+    <div class="panel-heading">Закажи покемона прямо сейчас!</div>
+    <div class="panel-body">
+        <form data-ng-submit="makeOrder(orderForm.$valid)" name="orderForm">
+            <div class="form-group">
+                <label for="orderFormUserName">Ваше имя *</label>
+                <input type="text" class="form-control" id="orderFormUserName" placeholder="Ваше имя"
+                       data-ng-required="true"
+                       data-ng-model="orderDetails.userName"
+                       data-ng-minlength="3"
+                       data-ng-maxlength="20">
+            </div>
+            <div class="form-group">
+                <label for="orderFormUserPhoneNumber">Номер телефона *</label>
+                <input type="text" class="form-control" id="orderFormUserPhoneNumber"
+                       data-ng-required="true"
+                       data-ng-model="orderDetails.phoneNumber"
+                       data-ng-minlength="10"
+                       data-ng-maxlength="18"
+                       data-ui-mask="38 (999) 999-99-99"
+                       data-ui-mask-modelViewValue="true">
+            </div>
+            <div class="form-group">
+                <label for="orderFormUserEmail">E-mail *</label>
+                <input type="email" class="form-control" id="orderFormUserEmail"
+                       placeholder="example@world.com"
+                       data-ng-required="true"
+                       data-ng-model="orderDetails.email"
+                       data-ng-minlength="6"
+                       data-ng-maxlength="100">
+            </div>
+            <button type="submit" class="btn btn-success" data-ng-disabled="orderForm.$invalid || orderingLoaderVisible">Заказать покемона</button>
+            <span class="ordering" data-ng-if="orderingLoaderVisible"></span>
+        </form>
+    </div>
+</div>
+

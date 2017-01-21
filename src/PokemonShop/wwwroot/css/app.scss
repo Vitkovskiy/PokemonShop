@@ -1,0 +1,42 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    background-color: #fee8b7;
+    background-image: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#order-form {
+    max-width: 350px;
+    min-width: 200px;
+    margin: auto;
+    margin-top: 50px;
+
+    .ordering {
+        background-image: url('/images/loader.gif');
+        background-size: cover;
+        background-position: center center;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+    }
+}
+
+#order-history {
+    max-width: 600px;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 50px;
+
+    p { 
+        margin-bottom: 0; 
+    }
+
+    table {
+        margin-bottom: 0;
+    }
+}

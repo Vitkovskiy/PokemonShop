@@ -1,0 +1,14 @@
+﻿<div class="panel panel-default" id="order-history">
+    <div class="panel-heading">Лента</div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <tbody>
+                <tr data-ng-repeat="order in orderHistoryItems">
+                    <td><p>{{order.orderDate}}</p></td>
+                    <td><p>{{order.userName}} заказал покемона уже {{order.count}} {{::getHowManyTimesWord(order.count)}}.</p></td>
+                </tr>               
+            </tbody>
+
+        </table>
+    </div>
+</div>
